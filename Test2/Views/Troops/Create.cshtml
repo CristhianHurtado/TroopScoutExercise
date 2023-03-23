@@ -1,0 +1,42 @@
+﻿@model Test2.Models.Troop
+
+@{
+    ViewData["Title"] = "Create Troop";
+}
+
+<h2>Create Troop</h2>
+
+<hr />
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="TroopName" class="control-label"></label>
+                <input asp-for="TroopName" class="form-control" />
+                <span asp-validation-for="TroopName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TroopNumber" class="control-label"></label>
+                <input asp-for="TroopNumber" class="form-control" />
+                <span asp-validation-for="TroopNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TroopBudget" class="control-label"></label>
+                <input asp-for="TroopBudget" class="form-control" />
+                <span asp-validation-for="TroopBudget" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to Troop List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

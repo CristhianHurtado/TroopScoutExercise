@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Test2.Models.Troop>
+
+@{
+    ViewData["Title"] = "Troop Index";
+}
+
+<h2>Troop Index</h2>
+
+<p>
+    <a asp-action="Create">Create New Troop</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TroopName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TroopNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TroopBudget)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TroopName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TroopNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TroopBudget)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

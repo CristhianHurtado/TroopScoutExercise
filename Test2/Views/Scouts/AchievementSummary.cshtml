@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Test2.ViewModels.AchievementSummaryVM>
+
+@{
+    ViewData["Title"] = "AchievementSummary";
+}
+
+<h1>Achievement Summary</h1>
+<p>
+    <a asp-action="DownloadAchievements" class="btn btn-info float-end">Download Achievements Report</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TroopName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfYears)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalHL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AverageLS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxEO)
+                @{
+                    int numberScouts = 0;
+                    int totalHL = 0;
+                }
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+                    @{
+                        numberScouts++;
+                        totalHL += item.TotalHL;
+                    }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TroopName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfYears)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalHL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AverageLS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxEO)
+            </td>
+        </tr>
+}
+        <tr class="table-active">
+            <td>
+                <strong>*Total for @numberScouts Scouts:</strong>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+                <strong>@totalHL.ToString()</strong>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>

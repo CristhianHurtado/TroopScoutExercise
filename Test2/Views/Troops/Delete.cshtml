@@ -1,0 +1,39 @@
+﻿@model Test2.Models.Troop
+
+@{
+    ViewData["Title"] = "Delete Troop";
+}
+
+<h2>Delete Troop</h2>
+
+<h3>Are you sure you want to delete @Model.TroopName?</h3>
+<div>
+    <hr />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TroopName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TroopName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TroopNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TroopNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TroopBudget)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TroopBudget)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to Troop List</a>
+    </form>
+</div>
